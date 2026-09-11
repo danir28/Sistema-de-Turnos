@@ -7,6 +7,9 @@
 > **Python** (Negocio) + **SQLAlchemy/SQLite** (Persistencia). Sin reglas de negocio
 > específicas asociadas. Endpoint **público**, sin autenticación (aplicación web de la
 > clienta). Este caso de uso invoca internamente a CU-14 (Calcular Duración del Turno).
+> Además de los horarios disponibles, la respuesta incluye la duración total y el precio
+> total estimado de los servicios seleccionados (**RF-17**), para que la clienta los vea
+> antes de confirmar la reserva (CU-12).
 
 | Campo | Valor |
 | --- | --- |
@@ -36,9 +39,12 @@ para reservar un turno según los servicios que desea realizarse.
    `calcular_duracion_turno()` (**incluye CU-14**) para determinar la duración total
    necesaria según los servicios seleccionados.
 3. La **Negocio** consulta la Persistencia (turnos existentes en la fecha solicitada) y
-   calcula los huecos libres del día que puedan contener esa duración.
+   calcula los huecos libres del día que puedan contener esa duración. En paralelo, suma
+   el `precio` de cada `Servicio` seleccionado para obtener el precio total estimado
+   (**RF-17**).
 4. El Sistema devuelve un código **200 OK** con la lista de horarios disponibles que
-   contienen la duración calculada.
+   contienen la duración calculada, junto con la `duracion_total_minutos` y el
+   `precio_total` de los servicios seleccionados.
 
 ### 4. FLUJOS ALTERNATIVOS (Caminos Tristes / Excepciones)
 
@@ -63,8 +69,9 @@ para reservar un turno según los servicios que desea realizarse.
      Fin del caso de uso.
 
 ### 6. POSTCONDICIONES
-- La clienta visualiza los horarios disponibles según los servicios seleccionados (o la
-  ausencia de horarios, si no hay disponibilidad ese día).
+- La clienta visualiza los horarios disponibles, junto con la duración y el precio total
+  estimado de los servicios seleccionados (o la ausencia de horarios, si no hay
+  disponibilidad ese día).
 
 ---
 

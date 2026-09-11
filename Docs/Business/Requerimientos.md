@@ -76,6 +76,20 @@ En esta entrega **NO** se incluirán las siguientes funcionalidades:
 - **RF-20:** Todo turno reservado desde la aplicación web debe reflejarse
   automáticamente en la agenda que utiliza la dueña, sin necesidad de carga manual.
 
+### 2.3 Reglas de Negocio
+
+> Reglas derivadas durante la especificación de los Casos de Uso (`Docs/Use case/`),
+> consolidadas acá para tener un catálogo único.
+
+| ID | Regla | RF relacionado | CU donde se aplica |
+| --- | --- | --- | --- |
+| **RN-01** | Usuario y contraseña son obligatorios para iniciar sesión; la contraseña se almacena encriptada (hash). | RF-13 | CU-01 |
+| **RN-02** | Un servicio no puede eliminarse si está asociado a turnos futuros en estado "reservado". | RF-01 | CU-02 |
+| **RN-03** | No pueden coexistir dos turnos con horarios superpuestos. | RF-04 | CU-03, CU-04, CU-12, CU-15 |
+| **RN-04** | La duración total de un turno es la suma de la duración estimada de cada servicio asociado. | RF-03 | CU-03, CU-04, CU-11, CU-14 |
+| **RN-05** | Un turno solo puede marcarse como "no asistido" si su fecha/hora ya transcurrió. | RF-07 | CU-06 |
+| **RN-06** | Una clienta solo puede cancelar su propia reserva con una antelación mínima de 24 horas. | RF-19 | CU-13 |
+
 ## 3. Requerimientos No Funcionales
 
 - **RNF-01 (Arquitectura):** El sistema debe implementarse con una arquitectura en
