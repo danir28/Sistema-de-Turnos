@@ -42,7 +42,7 @@ programado que se ejecuta de forma periódica e independiente de cualquier petic
    entre 23 y 24 horas antes del turno) y que todavía no tienen un recordatorio enviado.
 3. Para cada turno encontrado, la función envía un recordatorio al cliente con los datos
    del turno (fecha, hora y servicios), a través del canal configurado (por ejemplo,
-   WhatsApp o email mediante un servicio externo).
+   email mediante un servicio externo).
 4. La función marca el turno como "recordatorio enviado" (por ejemplo, un campo
    `recordatorio_enviado_en` en el modelo `Turno`) para no reenviarlo en la próxima
    ejecución del job.

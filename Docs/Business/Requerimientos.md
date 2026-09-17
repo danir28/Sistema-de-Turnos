@@ -54,7 +54,7 @@ En esta entrega **NO** se incluirán las siguientes funcionalidades:
 - **RF-10:** El sistema debe permitir registrar, modificar y consultar los datos de cada
   cliente (nombre, apellido y teléfono).
 - **RF-11:** El sistema debe mantener un historial de los servicios realizados a cada
-  cliente en base a sus turnos anteriores. *(Ver con pato)*
+  cliente en base a sus turnos anteriores.
 - **RF-12:** El sistema debe permitir enviar un recordatorio al cliente antes de la
   fecha del turno.
 - **RF-13:** El sistema debe requerir usuario y contraseña para acceder a sus
